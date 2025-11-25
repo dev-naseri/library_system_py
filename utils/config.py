@@ -31,7 +31,13 @@ import os
 from pathlib import Path
 
 
-# Project Base Folder Path
+class ProjectPath:
+    def __init__(self, base, logs, db_path):
+        self.base = base
+        self.logs = logs
+        self.db_path = db_path
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Create data directory if not existed
@@ -39,8 +45,17 @@ DATA_DIR = BASE_DIR / 'data'
 os.makedirs(DATA_DIR, exist_ok=True)
 
 
-# Database Path
 DATABASE_PATH = DATA_DIR / 'database.db'
+
+# Log File Path
+LOG_FILE = BASE_DIR / 'logs' / 'project.log'
+
+
+project_paths = ProjectPath(
+    base=BASE_DIR,  # Project Base Folder Path
+    logs=LOG_FILE,
+    db_path=DATABASE_PATH  # Database Path
+)
 
 
 # Global variable for current active user in library system
