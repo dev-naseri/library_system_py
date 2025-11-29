@@ -92,7 +92,6 @@ class Panel:
                 print(f"Owner: {owner}")
                 print("-" * 30)
 
-
         # update a book in library database
         if ask == "3":
             title = input("Enter book title: ")
